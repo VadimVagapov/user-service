@@ -55,7 +55,6 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     implementation("io.swagger.core.v3:swagger-annotations:2.2.9")
     implementation("jakarta.validation:jakarta.validation-api:3.0.2")
-//    implementation("jakarta.servlet:jakarta.servlet-api:6.0.0")
     implementation("org.openapitools:openapi-generator:6.6.0")
     implementation("org.openapitools:jackson-databind-nullable:0.2.6")
 
@@ -64,22 +63,15 @@ dependencies {
 
     //hibernate
     implementation("org.hibernate.orm:hibernate-jcache:6.4.4.Final")
-//    implementation("org.hibernate:hibernate-core:6.5.2.Final")
-//    implementation("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final")
 
-    //Common
-//    implementation("com.google.code.gson:gson:2.10.1")
-//    implementation("javax.annotation:javax.annotation-api:1.3.2")
-//    implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
-//    implementation("com.squareup.okhttp3:okhttp:4.10.0")
-//    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    //lombok
+    compileOnly("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
 
     //Mapstruct
     implementation("org.mapstruct:mapstruct:1.5.3.Final")
     annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
 
-    compileOnly("org.projectlombok:lombok:1.18.24")
-    annotationProcessor("org.projectlombok:lombok:1.18.24")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.0.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

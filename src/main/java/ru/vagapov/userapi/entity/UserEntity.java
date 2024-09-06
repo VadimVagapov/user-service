@@ -1,7 +1,17 @@
 package ru.vagapov.userapi.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,9 +21,12 @@ import java.util.UUID;
 /**
  * Данные по пользователю
  */
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 @DynamicUpdate
 @Table(name = "USERS")
-@EqualsAndHashCode
 @Entity
 public class UserEntity{
 
@@ -104,136 +117,4 @@ public class UserEntity{
      */
     @Column(name = "citizenship_code")
     private String citizenshipCode;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Short getVersion() {
-        return version;
-    }
-
-    public void setVersion(Short version) {
-        this.version = version;
-    }
-
-    public UUID getUserGuid() {
-        return userGuid;
-    }
-
-    public void setUserGuid(UUID userGuid) {
-        this.userGuid = userGuid;
-    }
-
-    public OffsetDateTime getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(OffsetDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public OffsetDateTime getChangeDate() {
-        return changeDate;
-    }
-
-    public void setChangeDate(OffsetDateTime changeDate) {
-        this.changeDate = changeDate;
-    }
-
-    public Boolean getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public OffsetDateTime getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(OffsetDateTime birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getBirthPlace() {
-        return birthPlace;
-    }
-
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
-    }
-
-    public SexEntity getSex() {
-        return sex;
-    }
-
-    public void setSex(SexEntity sex) {
-        this.sex = sex;
-    }
-
-    public String getCitizenshipCode() {
-        return citizenshipCode;
-    }
-
-    public void setCitizenshipCode(String citizenshipCode) {
-        this.citizenshipCode = citizenshipCode;
-    }
-
-    @Override
-    public String toString() {
-        return "UserEntity{" +
-                "id=" + id +
-                ", version=" + version +
-                ", userGuid=" + userGuid +
-                ", createDate=" + createDate +
-                ", changeDate=" + changeDate +
-                ", deleted=" + deleted +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                ", birthPlace='" + birthPlace + '\'' +
-                ", sex=" + sex +
-                ", citizenshipCode='" + citizenshipCode + '\'' +
-                '}';
-    }
 }
