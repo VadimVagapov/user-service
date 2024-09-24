@@ -1,6 +1,7 @@
 package ru.vagapov.userapi.mapper;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import ru.vagapov.userapi.entity.UserEntity;
 import ru.vagapov.userapi.model.UserDto;

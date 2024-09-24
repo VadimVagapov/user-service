@@ -5,17 +5,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import ru.vagapov.userapi.config.PostgresContainerConfig;
 import ru.vagapov.userapi.entity.UserEntity;
 import ru.vagapov.userapi.model.UserDto;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
-public class UserEntity2UserDtoTest {
+//@SpringBootTest
+public class UserEntity2UserDtoTest extends PostgresContainerConfig {
 
-    @InjectMocks
-    private UserEntity2UserDto userEntity2UserDto;
+    private final UserEntity2UserDto userEntity2UserDto = new UserEntity2UserDtoImpl();
 
     @Test
     void testGetUserDto() {
