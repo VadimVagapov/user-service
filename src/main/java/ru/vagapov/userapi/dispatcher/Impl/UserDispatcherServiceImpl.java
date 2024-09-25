@@ -1,9 +1,9 @@
-package ru.vagapov.userapi.service.dispatcher.Impl;
+package ru.vagapov.userapi.dispatcher.Impl;
 
 import org.springframework.stereotype.Service;
+import ru.vagapov.userapi.dispatcher.UserDispatcherService;
 import ru.vagapov.userapi.model.UserDto;
 import ru.vagapov.user.models.*;
-import ru.vagapov.userapi.service.dispatcher.UserDispatcherService;
 import ru.vagapov.userapi.validation.ValidationService;
 import ru.vagapov.userapi.mapper.UserDto2UserResponse;
 import ru.vagapov.userapi.service.UserService;

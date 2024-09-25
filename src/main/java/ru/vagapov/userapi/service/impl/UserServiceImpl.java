@@ -1,6 +1,5 @@
 package ru.vagapov.userapi.service.impl;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.vagapov.userapi.entity.UserEntity;
@@ -45,9 +44,7 @@ public class UserServiceImpl implements UserService {
         userEntity.setCreateDate(OffsetDateTime.now());
         userEntity.setDeleted(false);
         request2UserMapper.map(userEntity, userRequest);
-        System.out.println("userEntity before: " + userEntity);
         userEntity = userRepository.saveAndFlush(userEntity);
-        System.out.println("userEntity after: " + userEntity);
         return entity2UserDtoMapper.map(userEntity);
     }
 

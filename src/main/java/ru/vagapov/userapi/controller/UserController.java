@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import ru.vagapov.user.api.UserServiceApi;
 import ru.vagapov.user.models.*;
-import ru.vagapov.userapi.service.dispatcher.UserDispatcherService;
+import ru.vagapov.userapi.dispatcher.UserDispatcherService;
 
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ public class UserController implements UserServiceApi {
 
     private final UserDispatcherService userService;
 
-    public UserController(UserDispatcherService userService) {;
+    public UserController(UserDispatcherService userService) {
         this.userService = userService;
     }
 

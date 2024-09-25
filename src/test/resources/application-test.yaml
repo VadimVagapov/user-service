@@ -1,8 +1,30 @@
 spring:
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:tc:pg:13-alpine:///main
+    username: test
+    password: test
+    hikari:
+      maximum-pool-size: 2
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
   liquibase:
     change-log: classpath:/db/changelog/changelog.yaml
     enabled: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hbm2ddl:
+          auto: validate
+  cloud:
+    config:
+      discovery:
+        enabled: false
+    discovery:
+      enabled: false
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug

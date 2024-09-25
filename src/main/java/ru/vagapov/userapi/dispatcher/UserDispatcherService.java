@@ -1,4 +1,4 @@
-package ru.vagapov.userapi.service.dispatcher;
+package ru.vagapov.userapi.dispatcher;
 
 import ru.vagapov.user.models.*;
 
