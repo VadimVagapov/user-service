@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.vagapov.userapi.dispatcher.UserDispatcherService;
 import ru.vagapov.userapi.model.UserDto;
 import ru.vagapov.user.models.*;
-import ru.vagapov.userapi.validation.ValidationService;
+import ru.vagapov.userapi.validation.ValidationUserService;
 import ru.vagapov.userapi.mapper.UserDto2UserResponse;
 import ru.vagapov.userapi.service.UserService;
 
@@ -15,14 +15,14 @@ import java.util.UUID;
 public class UserDispatcherServiceImpl implements UserDispatcherService {
 
     private final UserService userService;
-    private final ValidationService validationService;
+    private final ValidationUserService validationUserService;
     private final UserDto2UserResponse mapper;
 
     public UserDispatcherServiceImpl(UserService userService,
-                                     ValidationService validationService,
+                                     ValidationUserService validationUserService,
                                      UserDto2UserResponse mapper) {
         this.userService = userService;
-        this.validationService = validationService;
+        this.validationUserService = validationUserService;
         this.mapper = mapper;
     }
 
@@ -36,7 +36,7 @@ public class UserDispatcherServiceImpl implements UserDispatcherService {
     public ExtendedUserResponse createUser(CreateUserRequest request) {
         CreateUser data = request.getData();
         if (data != null && data.getUser() != null) {
-            validationService.validRequest(request);
+            validationUserService.validRequest(request);
             UserDto user = userService.createUser(data.getUser());
             return getExtendedUserResponse(user);
         } else {
@@ -48,7 +48,7 @@ public class UserDispatcherServiceImpl implements UserDispatcherService {
     public ExtendedUserResponse updateUser(UpdateUserRequest request) {
         UpdateUser data = request.getData();
         if (data != null && data.getUser() != null) {
-            validationService.validRequest(request);
+            validationUserService.validRequest(request);
             UserDto user = userService.updateUser(data.getUserGuid(), data.getUser());
             return getExtendedUserResponse(user);
         } else {
@@ -58,14 +58,14 @@ public class UserDispatcherServiceImpl implements UserDispatcherService {
 
     @Override
     public ExtendedUserResponse deleteUser(Integer version, UUID userGuid) {
-        validationService.validVersion(version, userGuid);
+        validationUserService.validVersion(version, userGuid);
         UserDto user = userService.deleteUser(userGuid);
         return getExtendedUserResponse(user);
     }
 
     @Override
     public ListUserResponse getListUser(ListUserRequest listUserRequest) {
-        validationService.validRequest(listUserRequest);
+        validationUserService.validRequest(listUserRequest);
         List<UserDto> userList = userService.getListUser(listUserRequest);
         ListUserResponse response = new ListUserResponse();
         response.setData(mapper.map(userList));

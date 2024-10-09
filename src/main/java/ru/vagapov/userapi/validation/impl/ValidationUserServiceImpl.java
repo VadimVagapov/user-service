@@ -1,12 +1,12 @@
 package ru.vagapov.userapi.validation.impl;
 
 import org.springframework.stereotype.Service;
-import ru.vagapov.userapi.validation.ValidationService;
+import ru.vagapov.userapi.validation.ValidationUserService;
 
 import java.util.UUID;
 
 @Service
-public class ValidationServiceImpl implements ValidationService {
+public class ValidationUserServiceImpl implements ValidationUserService {
 
     @Override
     public void validRequest(Object request) {
